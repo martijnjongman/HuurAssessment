@@ -1,0 +1,142 @@
+{
+  "status": "success",
+  "data": {
+    "houses": [
+      {
+        "id": "2aaa5c95-e963-46ad-ad75-4f68cd311832",
+        "state": "active",
+        "housing_url": "appartement/huren/in/groningen/vondellaan/VW1gW",
+        "type": "apartment",
+        "price": 956,
+        "street": "Vondellaan",
+        "postcode": "9721LJ",
+        "city": "Groningen",
+        "province": "Groningen",
+        "delivery_level": "empty",
+        "rental_status": "forRent",
+        "rooms_total": 3,
+        "surface_living": 70,
+        "garden": false,
+        "garage": false,
+        "parking": true,
+        "balcony": true,
+        "storage": true,
+        "house_type": "premium",
+        "created_at": "2024-07-30T17:41:17+0200",
+        "images": [
+          {
+            "id": "09969269-b6a0-4643-8da5-b14ec70fef19",
+            "url": "https://loremflickr.com/640/480/house?random=09969269-b6a0-4643-8da5-b14ec70fef19"
+          },
+          {
+            "id": "ca63c2ff-df8a-43f5-85b3-e045b354758a",
+            "url": "https://loremflickr.com/640/480/house?random=ca63c2ff-df8a-43f5-85b3-e045b354758a"
+          },
+          {
+            "id": "dc7bc3ee-804e-428d-b070-0250a3d93ebd",
+            "url": "https://loremflickr.com/640/480/house?random=dc7bc3ee-804e-428d-b070-0250a3d93ebd"
+          },
+          {
+            "id": "3d080034-dd19-4448-90a7-3b051ce53bea",
+            "url": "https://loremflickr.com/640/480/house?random=3d080034-dd19-4448-90a7-3b051ce53bea"
+          },
+          {
+            "id": "5266e4a5-6a43-40e2-9cbe-e8e99123ef29",
+            "url": "https://loremflickr.com/640/480/house?random=5266e4a5-6a43-40e2-9cbe-e8e99123ef29"
+          }
+        ]
+      },
+      {
+        "id": "3c2338ef-299e-40e3-b718-ccc627725202",
+        "state": "active",
+        "housing_url": "appartement/huren/in/amsterdam/prins-hendrikkade/VW1Q0",
+        "type": "apartment",
+        "price": 2995,
+        "street": "Prins Hendrikkade",
+        "postcode": "1011TB",
+        "city": "Amsterdam",
+        "province": "Noord-Holland",
+        "delivery_level": "furnished",
+        "rental_status": "forRent",
+        "rooms_total": 3,
+        "surface_living": 101,
+        "garden": null,
+        "garage": null,
+        "parking": null,
+        "balcony": null,
+        "storage": null,
+        "house_type": "premium",
+        "created_at": "2024-07-30T17:36:10+0200",
+        "images": [
+          {
+            "id": "816df939-e368-4dd2-a7b9-d5e9520c8a2e",
+            "url": "https://loremflickr.com/640/480/house?random=816df939-e368-4dd2-a7b9-d5e9520c8a2e"
+          },
+          {
+            "id": "102238a1-506b-48f4-b81e-c23399fc390f",
+            "url": "https://loremflickr.com/640/480/house?random=102238a1-506b-48f4-b81e-c23399fc390f"
+          },
+          {
+            "id": "73a74580-76da-4094-b1ce-e5c0e801907c",
+            "url": "https://loremflickr.com/640/480/house?random=73a74580-76da-4094-b1ce-e5c0e801907c"
+          },
+          {
+            "id": "6de6cbc1-c121-40ed-aa9f-b4a8379462a9",
+            "url": "https://loremflickr.com/640/480/house?random=6de6cbc1-c121-40ed-aa9f-b4a8379462a9"
+          },
+          {
+            "id": "e603644f-7cb5-4e66-9fc2-d92affa46c80",
+            "url": "https://loremflickr.com/640/480/house?random=e603644f-7cb5-4e66-9fc2-d92affa46c80"
+          }
+        ]
+      },
+      {
+        "id": "96dd8613-a245-4553-961d-e24707829575",
+        "state": "active",
+        "housing_url": "huurwoning/huren/in/helmond/schoolstraat/VVwtE",
+        "type": "residentialHouse",
+        "price": 1990,
+        "street": "Schoolstraat",
+        "postcode": "5701JR",
+        "city": "Helmond",
+        "province": "Noord-Brabant",
+        "delivery_level": "furnished",
+        "rental_status": "forRent",
+        "rooms_total": 5,
+        "surface_living": 136,
+        "garden": null,
+        "garage": null,
+        "parking": true,
+        "balcony": false,
+        "storage": null,
+        "house_type": "premium",
+        "created_at": "2024-07-30T16:55:12+0200",
+        "images": [
+          {
+            "id": "9fc6d7f2-ec43-49e3-ba20-8b6d23811060",
+            "url": "https://loremflickr.com/640/480/house?random=9fc6d7f2-ec43-49e3-ba20-8b6d23811060"
+          },
+          {
+            "id": "a8103730-dc6a-4939-ba5f-dc9bfaaa4fff",
+            "url": "https://loremflickr.com/640/480/house?random=a8103730-dc6a-4939-ba5f-dc9bfaaa4fff"
+          },
+          {
+            "id": "6110195e-258d-478f-92d0-5a4cf8b53e67",
+            "url": "https://loremflickr.com/640/480/house?random=6110195e-258d-478f-92d0-5a4cf8b53e67"
+          },
+          {
+            "id": "acbce46e-2df9-49ce-9d36-300799708265",
+            "url": "https://loremflickr.com/640/480/house?random=acbce46e-2df9-49ce-9d36-300799708265"
+          },
+          {
+            "id": "6f4061f5-f9ad-4f59-b8e2-f27ef01dc91f",
+            "url": "https://loremflickr.com/640/480/house?random=6f4061f5-f9ad-4f59-b8e2-f27ef01dc91f"
+          }
+        ]
+      }
+    ],
+    "aggregations": {
+      "total": 3
+    }
+  }
+}

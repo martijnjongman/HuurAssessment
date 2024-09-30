@@ -5,6 +5,6 @@
 
 @layer base {
     html {
-      @apply font-brandFont;
+      @apply font-brandFont text-brand-dark-gray;
     }
 }
