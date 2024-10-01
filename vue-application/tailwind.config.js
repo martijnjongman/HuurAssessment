@@ -9,7 +9,8 @@ export default {
         'brand-dark-gray': '#111827',
         'brand-light-gray': '#e5e7eb',
         'brand-blue': '#1644d0',
-        'brand-pastel-blue': '#eff6ff',
+        'brand-red': '#b91c1c',
+        'brand-orange': '#c2410c'
       },
       fontFamily: {
         brandFont: ['Urbanist', 'sans-serif']
@@ -17,4 +18,5 @@ export default {
     },
   },
   plugins: [],
+  
 }

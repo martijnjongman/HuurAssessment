@@ -1,11 +1,41 @@
 <script setup lang="ts">
+import { ref, onMounted, defineAsyncComponent } from 'vue';
+import { useStore } from './store/store'
+
 import Filters from './components/Filters.vue';
-import { defineAsyncComponent } from 'vue';
+
+const store = useStore()
 
 const ListingGrid = defineAsyncComponent(() =>
   import('./components/ListingGrid.vue')
 );
 
+const listingItems = ref<any[]>([]);
+
+// Fetching data
+onMounted(async () => {
+    // Simulate fetch delay
+    const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+    try {
+        await sleep(500);
+        
+        const responses = await Promise.all([
+            fetch('/data/api-free-p1.json'),
+            fetch('/data/api-free-p2.json'),
+            fetch('/data/api-free-p3.json'),
+            fetch('/data/api-premium-p1.json')
+        ]);
+        
+        const data = await Promise.all(responses.map(responses => responses.json()));
+        listingItems.value = data.flatMap(item => item.data.houses);
+        // Putting data in store 
+        store.dispatch('setListingItems', listingItems.value);
+
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+});
 </script>
 
 <template>
@@ -21,7 +51,7 @@ const ListingGrid = defineAsyncComponent(() =>
       
       <Suspense>
         <template #default>
-          <ListingGrid />
+          <ListingGrid :data="listingItems" />
         </template>
         <template #fallback>
           <div class="flex-1 h-56 flex justify-center items-center font-bold text-xl">Woningen laden...</div>

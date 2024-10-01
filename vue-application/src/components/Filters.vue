@@ -15,10 +15,10 @@ const toggleFilter = () => {
     </button>
 
     <div :class="{
-    'hidden': !isFilterVisible,
-    'block': isFilterVisible,
-    'z-10 absolute lg:hidden inset-0 bg-black opacity-25': true
-    }"
+        'hidden': !isFilterVisible,
+        'block': isFilterVisible,
+        'z-10 absolute lg:hidden inset-0 bg-black opacity-25': true
+        }"
     @click="toggleFilter"></div>
 
     <div 
