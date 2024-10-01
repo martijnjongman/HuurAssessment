@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import ListingGrid from './components/ListingGrid.vue';
 import Filters from './components/Filters.vue';
+import { defineAsyncComponent } from 'vue';
+
+const ListingGrid = defineAsyncComponent(() =>
+  import('./components/ListingGrid.vue')
+);
 
 </script>
 
@@ -14,8 +18,15 @@ import Filters from './components/Filters.vue';
 
     <div class="flex flex-col lg:flex-row lg:gap-14">
       <Filters />
-  
-      <ListingGrid />
+      
+      <Suspense>
+        <template #default>
+          <ListingGrid />
+        </template>
+        <template #fallback>
+          <div class="flex-1 h-56 flex justify-center items-center font-bold text-xl">Woningen laden...</div>
+        </template>
+      </Suspense>
     </div>
   </div>
 </template>
