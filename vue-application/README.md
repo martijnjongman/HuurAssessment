@@ -1,6 +1,6 @@
 # Huurassessment
 
-**Huurassessment** is a web application built with Vue 3 and TypeScript, utilizing Vuex for state management and Vite for development and build processes. This project aims to provide an efficient platform for users to search and filter rental properties in the Netherlands.
+**Huurassessment** is a web application built with Vue 3, TailwindCSS and TypeScript, utilizing Vuex for state management and Vite for development and build processes.
 
 ## Table of Contents
 
@@ -9,8 +9,6 @@
 - [Usage](#usage)
 - [Scripts](#scripts)
 - [Dependencies](#dependencies)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -27,32 +25,28 @@
    cd Huurassessment
 
 2. Install the dependencies:
+    ```bash
+    npm install
 
-bash
-
-npm install
 
 ## Usage
 
-To run the development server, use the following command:
+3. To run the development server, use the following command:
 
-bash
+    ```bash
+    npm run dev
+    ```
+This will start the Vite development server and you can access the application at http://localhost:5173/
 
-npm run dev
-
-This will start the Vite development server and you can access the application at http://localhost:3000.
-
-To build the project for production, run:
-
-bash
-
-npm run build
-
-You can then preview the production build using:
-
-bash
-
-npm run preview
+4. To build the project for production, run:
+    ```bash
+    npm run build
+    ```
+    
+5. You can then preview the production build using:
+    ```
+    npm run preview
+    ```
 
 ## Scripts
 
