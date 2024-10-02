@@ -4,6 +4,13 @@ import { useStore } from '../../store/store';
 
 const store = useStore();
 
+const houseTypeMap: Record<string, string> = {
+    apartment: 'Appartement',
+    residentialHouse: 'Huurwoning',
+    studio: 'Studio',
+    all: 'Alle woningtypes'
+};
+
 const availableTypes = computed(() => {
     const types = store.getters.houseTypes;
 
@@ -50,7 +57,7 @@ const handleTypeChange = (type: string) => {
                     :checked="isEmptyType()"
                     class="mr-2 custom-checkbox"
                 />
-                <label class="cursor-pointer">Alle woningtypes</label>
+                <label class="cursor-pointer">{{ houseTypeMap.all }}</label>
             </div>
 
             <div v-for="type in availableTypes" :key="type" @click="handleTypeChange(type)" 
@@ -64,7 +71,7 @@ const handleTypeChange = (type: string) => {
                     @change.stop="toggleType(type)"
                     class="mr-2 custom-checkbox"
                 />
-                <label class="cursor-pointer">{{ type }}</label>
+                <label class="cursor-pointer">{{ houseTypeMap[type] || 'Onbekend type' }}</label>         
             </div>
         </div>
     </div>
