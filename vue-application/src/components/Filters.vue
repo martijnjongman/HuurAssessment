@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import SearchFilter from './filters/SearchFilter.vue';
+import PriceFilter from './filters/PriceFilter.vue';
+import HouseType from './filters/HouseType.vue';
 
 const isFilterVisible = ref(false);
-
 const toggleFilter = () => {
   isFilterVisible.value = !isFilterVisible.value;
 };
@@ -38,7 +40,11 @@ const toggleFilter = () => {
                 <p class="text-brand-gray leading-6">Wij zoeken woningen op meer dan 300 huursites en bundelen alle gevonden woningen in een overzichtelijk aanbod.</p>
             </div>
             
-            <div class="">Eerste filter</div>
+            <SearchFilter />
+
+            <PriceFilter />
+
+            <HouseType />
         </div>
     </div>
 </template>

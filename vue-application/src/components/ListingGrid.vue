@@ -12,14 +12,14 @@
     const itemsPerPage = 10;
     const currentPage = ref(1);
 
-    const listingItems = computed(() => store.state.listingItems);
+    const filteredItems = computed(() => store.getters.filteredItems);
 
     // Pagination
     const paginatedItems = computed(() => {
-        return getPaginatedItems(listingItems.value, currentPage.value, itemsPerPage);
+        return getPaginatedItems(filteredItems.value, currentPage.value, itemsPerPage);
     });
     const totalPages = computed(() => {
-        return calculateTotalPages(listingItems.value, itemsPerPage);
+        return calculateTotalPages(filteredItems.value, itemsPerPage);
     });
     const changePage = (page: number) => {
     if (page >= 1 && page <= totalPages.value) {
