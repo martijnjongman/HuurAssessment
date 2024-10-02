@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, onMounted } from "vue";
 import { useStore } from "../store/store";
 
 import HousingCard from "./HousingCard.vue";
@@ -12,6 +12,35 @@ import {
 } from "../utils/pagination";
 
 const store = useStore();
+
+const listingItems = ref<any[]>([]);
+
+// Fetching data
+onMounted(async () => {
+  // Simulate fetch delay
+  const sleep = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
+
+  try {
+    await sleep(500);
+
+    const responses = await Promise.all([
+      fetch("/data/api-free-p1.json"),
+      fetch("/data/api-free-p2.json"),
+      fetch("/data/api-free-p3.json"),
+      fetch("/data/api-premium-p1.json"),
+    ]);
+
+    const data = await Promise.all(
+      responses.map((responses) => responses.json())
+    );
+    listingItems.value = data.flatMap((item) => item.data.houses);
+    // Putting data in store
+    store.dispatch("setListingItems", listingItems.value);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+});
 
 const itemsPerPage = 10;
 const currentPage = ref(1);

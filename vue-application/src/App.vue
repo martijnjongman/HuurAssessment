@@ -1,43 +1,14 @@
 <script setup lang="ts">
-import { ref, onMounted, defineAsyncComponent, computed } from "vue";
+import { defineAsyncComponent, computed } from "vue";
 import { useStore } from "./store/store";
 
 import Filters from "./components/Filters.vue";
-
-const store = useStore();
 
 const ListingGrid = defineAsyncComponent(
   () => import("./components/ListingGrid.vue")
 );
 
-const listingItems = ref<any[]>([]);
-
-// Fetching data
-onMounted(async () => {
-  // Simulate fetch delay
-  const sleep = (ms: number) =>
-    new Promise((resolve) => setTimeout(resolve, ms));
-
-  try {
-    await sleep(500);
-
-    const responses = await Promise.all([
-      fetch("/data/api-free-p1.json"),
-      fetch("/data/api-free-p2.json"),
-      fetch("/data/api-free-p3.json"),
-      fetch("/data/api-premium-p1.json"),
-    ]);
-
-    const data = await Promise.all(
-      responses.map((responses) => responses.json())
-    );
-    listingItems.value = data.flatMap((item) => item.data.houses);
-    // Putting data in store
-    store.dispatch("setListingItems", listingItems.value);
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-});
+const store = useStore();
 
 const totalResults = computed(() => store.getters.filteredItems.length);
 </script>
