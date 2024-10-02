@@ -13,8 +13,8 @@ const updatePriceRange = () => {
   priceRange.value = [priceRange.value[0], priceRange.value[1]];
 };
 
-const minPricePlaceholder = priceRange.value[0].toString;
-const maxPricePlaceholder = priceRange.value[1].toString;
+const minPricePlaceholder = priceRange.value[0] !== undefined ? priceRange.value[0].toString() : '';
+const maxPricePlaceholder = priceRange.value[1] !== undefined ? priceRange.value[1].toString() : '';
 </script>
 
 <template>
