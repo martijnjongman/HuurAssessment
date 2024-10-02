@@ -1,80 +1,89 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useStore } from '../../store/store';
+import { computed } from "vue";
+import { useStore } from "../../store/store";
 
 const store = useStore();
 
 const houseTypeMap: Record<string, string> = {
-    apartment: 'Appartement',
-    residentialHouse: 'Huurwoning',
-    studio: 'Studio',
-    all: 'Alle woningtypes'
+  apartment: "Appartement",
+  residentialHouse: "Huurwoning",
+  studio: "Studio",
+  all: "Alle woningtypes",
 };
 
 const availableTypes = computed(() => {
-    const types = store.getters.houseTypes;
+  const types = store.getters.houseTypes;
 
-    return [...types];
+  return [...types];
 });
 
 const isSelectedType = (type: string) => {
-    return store.state.filter.selectedTypes.includes(type);
+  return store.state.filter.selectedTypes.includes(type);
 };
 
 const isEmptyType = () => {
-    return store.state.filter.selectedTypes.length === 0;
-}
+  return store.state.filter.selectedTypes.length === 0;
+};
 
 const toggleType = (type: string) => {
-    store.dispatch('toggleType', type);
+  store.dispatch("toggleType", type);
 };
 
 const handleTypeChange = (type: string) => {
-    if (type === 'all') {
-        store.dispatch('resetSelectedTypes');
-    } else {
-        store.dispatch('toggleType', type);
-    }
+  if (type === "all") {
+    store.dispatch("resetSelectedTypes");
+  } else {
+    store.dispatch("toggleType", type);
+  }
 };
 </script>
 
 <template>
+  <div class="flex flex-col gap-2">
+    <h3 class="font-semibold">Woningtype</h3>
+
     <div class="flex flex-col gap-2">
-        <h3 class="font-semibold">Woningtype</h3>
+      <div
+        @click="handleTypeChange('all')"
+        :class="[
+          'flex items-center rounded-lg py-3 px-4 border text-brand-dark-gray text-opacity-60 cursor-pointer hover:border-brand-blue transition',
+          isEmptyType()
+            ? 'bg-brand-blue bg-opacity-10 border-brand-blue'
+            : 'bg-brand-light-gray bg-opacity-5 border-brand-light-gray',
+        ]"
+      >
+        <input
+          type="checkbox"
+          :checked="isEmptyType()"
+          class="mr-2 custom-checkbox"
+        />
+        <label class="cursor-pointer">{{ houseTypeMap.all }}</label>
+      </div>
 
-        <div class="flex flex-col gap-2">
-          <div 
-                @click="handleTypeChange('all')" 
-                :class="[
-                    'flex items-center rounded-lg py-3 px-4 border text-brand-dark-gray text-opacity-60 cursor-pointer hover:border-brand-blue transition',
-                    isEmptyType()
-                        ? 'bg-brand-blue bg-opacity-10 border-brand-blue' 
-                        : 'bg-brand-light-gray bg-opacity-5 border-brand-light-gray'
-                ]"
-            >
-                <input
-                    type="checkbox"
-                    :checked="isEmptyType()"
-                    class="mr-2 custom-checkbox"
-                />
-                <label class="cursor-pointer">{{ houseTypeMap.all }}</label>
-            </div>
-
-            <div v-for="type in availableTypes" :key="type" @click="handleTypeChange(type)" 
-            :class="[
-            'flex items-center rounded-lg py-3 px-4 border text-brand-dark-gray text-opacity-60 cursor-pointer hover:border-brand-blue transition',
-            isSelectedType(type) ? 'bg-brand-blue bg-opacity-10 border-brand-blue' : 'bg-brand-light-gray bg-opacity-5 border-brand-light-gray']">
-                <input
-                    type="checkbox"
-                    :value="type"
-                    :checked="isSelectedType(type)"
-                    @change.stop="toggleType(type)"
-                    class="mr-2 custom-checkbox"
-                />
-                <label class="cursor-pointer">{{ houseTypeMap[type] || 'Onbekend type' }}</label>         
-            </div>
-        </div>
+      <div
+        v-for="type in availableTypes"
+        :key="type"
+        @click="handleTypeChange(type)"
+        :class="[
+          'flex items-center rounded-lg py-3 px-4 border text-brand-dark-gray text-opacity-60 cursor-pointer hover:border-brand-blue transition',
+          isSelectedType(type)
+            ? 'bg-brand-blue bg-opacity-10 border-brand-blue'
+            : 'bg-brand-light-gray bg-opacity-5 border-brand-light-gray',
+        ]"
+      >
+        <input
+          type="checkbox"
+          :value="type"
+          :checked="isSelectedType(type)"
+          @change.stop="toggleType(type)"
+          class="mr-2 custom-checkbox"
+        />
+        <label class="cursor-pointer">{{
+          houseTypeMap[type] || "Onbekend type"
+        }}</label>
+      </div>
     </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -88,7 +97,7 @@ const handleTypeChange = (type: string) => {
 
 .custom-checkbox:checked::after {
   @apply absolute top-1/2 left-1/2 w-3 h-3 bg-brand-blue rounded-full;
-  content: '';
+  content: "";
   transform: translate(-50%, -50%);
 }
 </style>
