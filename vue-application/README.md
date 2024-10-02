@@ -21,8 +21,8 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/Huurassessment.git
-   cd Huurassessment
+   git clone https://github.com/martijnjongman/HuurAssessment.git
+   cd Huurassessment/vue-application
 
 2. Install the dependencies:
     ```bash
